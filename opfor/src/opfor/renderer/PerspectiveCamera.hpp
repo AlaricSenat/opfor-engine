@@ -4,7 +4,6 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 #include "opfor/core/Input.hpp"
-#include "components/PlayerCameraComponent.hpp"
 #include "components/TransformComponent.hpp"
 
 namespace opfor {

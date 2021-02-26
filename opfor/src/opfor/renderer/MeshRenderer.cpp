@@ -10,9 +10,7 @@
 #include "opfor/renderer/Renderer.hpp"
 #include "opfor/core/ImageLoader.hpp"
 
-#include "components/MeshComponent.hpp"
 #include "components/TransformComponent.hpp"
-#include "components/SkyboxComponent.hpp"
 #include "components/PointLightComponent.hpp"
 #include "components/DirectionalLightComponent.hpp"
 #include "components/ModelComponent.hpp"
