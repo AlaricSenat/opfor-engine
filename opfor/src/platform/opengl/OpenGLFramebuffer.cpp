@@ -27,6 +27,31 @@ void OpenGLFramebuffer::Unbind()
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
+static GLenum ToGlColorAttachmentEnum(FramebufferAttachment attachment)
+{
+    static const UnorderedMap<FramebufferAttachment, GLenum> lookup = {
+        { FramebufferAttachment::ColorAttachment0,  GL_COLOR_ATTACHMENT0  },
+        { FramebufferAttachment::ColorAttachment1,  GL_COLOR_ATTACHMENT1  },
+        { FramebufferAttachment::ColorAttachment2,  GL_COLOR_ATTACHMENT2  },
+        { FramebufferAttachment::ColorAttachment3,  GL_COLOR_ATTACHMENT3  },
+        { FramebufferAttachment::ColorAttachment4,  GL_COLOR_ATTACHMENT4  },
+        { FramebufferAttachment::ColorAttachment5,  GL_COLOR_ATTACHMENT5  },
+        { FramebufferAttachment::ColorAttachment6,  GL_COLOR_ATTACHMENT6  },
+        { FramebufferAttachment::ColorAttachment7,  GL_COLOR_ATTACHMENT7  },
+        { FramebufferAttachment::ColorAttachment8,  GL_COLOR_ATTACHMENT8  },
+        { FramebufferAttachment::ColorAttachment9,  GL_COLOR_ATTACHMENT9  },
+        { FramebufferAttachment::ColorAttachment10, GL_COLOR_ATTACHMENT10 },
+        { FramebufferAttachment::ColorAttachment11, GL_COLOR_ATTACHMENT11 },
+        { FramebufferAttachment::ColorAttachment12, GL_COLOR_ATTACHMENT12 },
+        { FramebufferAttachment::ColorAttachment13, GL_COLOR_ATTACHMENT13 },
+        { FramebufferAttachment::ColorAttachment14, GL_COLOR_ATTACHMENT14 },
+        { FramebufferAttachment::ColorAttachment15, GL_COLOR_ATTACHMENT15 },
+        { FramebufferAttachment::DepthAttachment,   GL_DEPTH_ATTACHMENT   },
+    };
+
+    return lookup.at(attachment);
+}
+
 void OpenGLFramebuffer::AttachTexture(SharedPtr<Texture> texture, FramebufferAttachment attachment)
 {
 	glBindFramebuffer(GL_FRAMEBUFFER, _RendererID);
@@ -48,7 +73,7 @@ void OpenGLFramebuffer::AttachTexture(SharedPtr<Texture> texture, FramebufferAtt
 		case FramebufferAttachment::ColorAttachment13:
 		case FramebufferAttachment::ColorAttachment14:
 		case FramebufferAttachment::ColorAttachment15:
-			glFramebufferTexture2D(GL_FRAMEBUFFER, (GLenum)attachment, GL_TEXTURE_2D, texture->GetRawHandle(), 0);
+			glFramebufferTexture2D(GL_FRAMEBUFFER, ToGlColorAttachmentEnum(attachment), GL_TEXTURE_2D, texture->GetRawHandle(), 0);
 			_Attachments.insert(attachment);
 			UpdateDrawBuffers();
 			break ;
@@ -80,7 +105,7 @@ void OpenGLFramebuffer::UpdateDrawBuffers() const
 
 	for (auto const &attach : _Attachments) {
 		if (attach >= FramebufferAttachment::ColorAttachment0 && attach <= FramebufferAttachment::ColorAttachment15)
-			attachments.push_back((GLuint)attach);
+			attachments.push_back((GLuint)ToGlColorAttachmentEnum(attach));
 	}
 
 	if (attachments.size() > 0) {
