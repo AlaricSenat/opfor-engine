@@ -10,7 +10,6 @@ project "opfor"
     files
     {
         "src/**.hpp",
-        "src/**.h",
         "src/**.cpp",
     }
 

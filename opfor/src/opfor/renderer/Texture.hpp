@@ -2,7 +2,6 @@
 
 #include "opfor/core/ImageLoader.hpp"
 #include "opfor/core/base.hpp"
-#include "renderer.hpp"
 
 #include <glm/glm.hpp>
 

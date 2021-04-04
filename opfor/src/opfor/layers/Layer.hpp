@@ -1,6 +1,6 @@
 #pragma once
 
-#include "opfor/core/events/Event.h"
+#include "opfor/core/events/Event.hpp"
 
 namespace opfor
 {

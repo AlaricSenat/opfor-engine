@@ -7,7 +7,6 @@
 #include <glm/vec2.hpp>
 #include <glm/vec3.hpp>
 #include <list>
-#include <renderer.hpp>
 #include <vector>
 
 namespace opfor

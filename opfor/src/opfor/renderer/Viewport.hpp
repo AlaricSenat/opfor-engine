@@ -1,7 +1,7 @@
 #pragma once
 
 #include "opfor/core/events/EngineEvents.hpp"
-#include "opfor/core/events/Event.h"
+#include "opfor/core/events/Event.hpp"
 #include "opfor/layers/Layer.hpp"
 #include "opfor/renderer/Framebuffer.hpp"
 #include "opfor/renderer/Texture.hpp"

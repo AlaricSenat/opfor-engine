@@ -1,3 +1,5 @@
+require "install"
+
 workspace "opfor"
     architecture "x64"
     startproject "opfor-editor"

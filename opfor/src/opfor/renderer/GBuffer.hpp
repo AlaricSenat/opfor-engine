@@ -3,7 +3,6 @@
 #include "opfor/renderer/Framebuffer.hpp"
 #include "opfor/renderer/Renderbuffer.hpp"
 #include "opfor/renderer/Texture.hpp"
-#include "renderer.hpp"
 
 class GBuffer
 {

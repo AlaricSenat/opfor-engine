@@ -1,7 +1,6 @@
 #pragma once
 
 #include "opfor/renderer/Shader.hpp"
-#include "renderer.hpp"
 #include <memory>
 #include <unordered_map>
 

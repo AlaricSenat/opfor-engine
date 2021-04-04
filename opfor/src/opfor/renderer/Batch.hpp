@@ -1,7 +1,6 @@
 #pragma once
 #include "IDrawable.hpp"
 #include "opfor/core/base.hpp"
-#include <renderer.hpp>
 #include <string>
 #include <vector>
 

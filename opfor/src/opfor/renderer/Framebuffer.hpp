@@ -1,7 +1,6 @@
 #pragma once
 
 #include "opfor/core/base.hpp"
-#include "renderer.hpp"
 
 namespace opfor
 {
